@@ -122,3 +122,10 @@ cookbooks/*
 
 # ## Office Temp Files
 # ~$*
+
+# ## Packer output
+packer_cache
+output-hyperv-iso
+*.box
+packer.exe
+mkisofs.exe
