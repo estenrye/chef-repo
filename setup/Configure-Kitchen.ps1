@@ -1,0 +1,1 @@
+[System.Environment]::SetEnvironmentVariable('KITCHEN_HYPERV_SWITCH', "'Default Switch'", 'machine')

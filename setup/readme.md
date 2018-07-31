@@ -8,3 +8,5 @@ This folder contains scripts that make my development environment function prope
 | Get-Packer.ps1 | `-version` | No | Downloads specified version of packer if not already downloaded. |
 | Configure-Git.ps1 | None | No | Sets preferred settings for git. |
 | Build-Image.ps1 | None | No | Builds vagrant box image in standardized location. |
+| Configure-Kitchen.ps1 | None | Yes | Configures environment variables for Kitchen. |
+| Configure-Vagrant.ps1 | None | Yes | Configures Vagrant for Hyper-V. |
