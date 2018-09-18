@@ -47,7 +47,7 @@ function edi {
         [string]$Region,
         [Parameter(Mandatory=$true, Position = 3)]
         [ValidateSet('test', 'dev', 'sit', 'qe', 'stage', 'prod')]
-        [string]$Environment = 'test'
+        [string]$Environment
     )
     push-location $env:CHEF_REPO_PATH
     $EnvironmentKey = 'dev'
