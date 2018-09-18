@@ -43,16 +43,16 @@ function edi {
         [Parameter(Mandatory=$true, Position = 1)]
         [string]$Databag,
         [Parameter(Mandatory=$true, Position = 2)]
-        [string]$DatabagItem,
-        [Parameter(Mandatory=$true, Position = 3)]
         [ValidateSet('us', 'gb', 'jp')]
         [string]$Region,
-        [Parameter(Mandatory=$false, Position = 4)]
-        [ValidateSet('dev', 'prod')]
-        [string]$EnvironmentKey = 'dev'
+        [Parameter(Mandatory=$true, Position = 3)]
+        [ValidateSet('test', 'dev', 'sit', 'qe', 'stage', 'prod')]
+        [string]$Environment = 'test'
     )
     push-location $env:CHEF_REPO_PATH
-    knife data bag $Command $Databag $DatabagItem --secret-file "../.chef/encrypted_data_bag_secret_$Region_$Environment"
+    $EnvironmentKey = 'dev'
+    if ($Environment == 'prod') { $EnvironmentKey = 'prod' }
+    knife data bag $Command $Databag "$($Region)_$($Environment)" --secret-file "../.chef/encrypted_data_bag_secret_$($Region)_$($EnvironmentKey)"
     pop-location
 }
 
